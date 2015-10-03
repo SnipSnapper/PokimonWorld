@@ -263,7 +263,7 @@ public class Main extends javax.swing.JFrame {
         mainPanel.add(loginScreen, "loginScreen");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("user screen");
+        jLabel1.setText("User Screen");
 
         jButton1.setText("log out");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
