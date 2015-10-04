@@ -7,6 +7,13 @@ package worldofpokimon;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,12 +23,25 @@ import javax.persistence.Persistence;
  * @author ceess
  */
 public class Main extends javax.swing.JFrame {
-
+    Connection connection = null;
+    Statement stmt = null;
+    String yolo;
+    String username;
+    String password;
+    String logInUsername;
+    String logInPassword;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+        try {
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/dev1",
+            "postgres", "lollipop");
+        } catch ( Exception e ) {
+         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+         System.exit(0);
+    }
     }
 
     /**
@@ -287,7 +307,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        logInPasswordField.setText("jPasswordField1");
         logInPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logInPasswordFieldActionPerformed(evt);
@@ -425,9 +444,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void logInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInButtonActionPerformed
-        getLogIn();
-        CardLayout card = (CardLayout)mainPanel.getLayout();
-        card.show(mainPanel, "userScreen");
+        getUser();
     }//GEN-LAST:event_logInButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
@@ -495,28 +512,60 @@ public class Main extends javax.swing.JFrame {
     
     public void getRegistration()
     {
+        
         String reg_username = usernameField.getText();
-        System.out.println(reg_username);
         String reg_password = passwordField.getText();
         String reg_firstName = firstNameField.getText();      
         String reg_lastName = lastNameField.getText();
         String reg_iban = IBANField.getText();
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM Users WHERE user_name = '" + reg_username + "';" );
+            while ( rs.next() ) {
+                username = rs.getString("user_name");
+                password  = rs.getString("password");
+            
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        /*if(reg_username.equals(reg_username)){
+            System.out.println("het werkt");
+        } else{
+            Users s = new Users();
+            System.out.println(reg_username);
+            s.setUserName(reg_username);
+            s.setPassword(reg_password);
+            s.setFirstName(reg_firstName);
+            s.setLastName(reg_lastName);
+            s.setIban(reg_iban);
+            persist(s);
+        }*/
         
-        Users s = new Users();
-        s.setUserName(reg_username);
-        s.setPassword(reg_password);
-        s.setFirstName(reg_firstName);
-        s.setLastName(reg_lastName);
-        s.setIban(reg_iban);
-        persist(s);
     }
-    
-    public void getLogIn()
-    {
-        String logInUsername = logInUsernameField.getText();
-        String logInPassword = logInPasswordField.getText();
+    public void getUser(){
         
-        Users s = new Users();
+    try{
+    stmt = connection.createStatement();
+    ResultSet rs = stmt.executeQuery( "SELECT * FROM Users;" );
+    while ( rs.next() ) {
+            username = rs.getString("user_name");
+            password  = rs.getString("password");
+            
+    }
+    }
+    catch ( Exception e ) {
+         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+         System.exit(0);
+    }
+    logInUsername = logInUsernameField.getText();
+    logInPassword = logInPasswordField.getText();
+    if(username.equals(logInUsername) && password.equals(logInPassword)){
+            CardLayout card = (CardLayout)mainPanel.getLayout();
+            card.show(mainPanel, "userScreen");
+        }else{
+            System.out.println("username or password doesn't match");
+        }
     }
     
     public static void persist(Object object) 
