@@ -97,6 +97,18 @@ public class Main extends javax.swing.JFrame {
         toBuyCharsButton = new javax.swing.JButton();
         userLogOutButton = new javax.swing.JButton();
         switchToCharButton = new javax.swing.JButton();
+        addMoneyScreen = new javax.swing.JPanel();
+        extendSubscriptionScreen = new javax.swing.JPanel();
+        buySlotsScreen = new javax.swing.JPanel();
+        createCharacterScreen = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        ccBackButton = new javax.swing.JButton();
+        connectServerScreen = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        charStatsScreen = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        csBackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 0));
@@ -142,7 +154,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainScreenLayout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                     .addGroup(mainScreenLayout.createSequentialGroup()
                         .addComponent(loginScreenButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -258,7 +270,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(registerScreenLayout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         registerScreenLayout.setVerticalGroup(
             registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,7 +356,7 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(logInPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                             .addComponent(logInUsernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))
-                .addGap(0, 160, Short.MAX_VALUE))
+                .addGap(0, 190, Short.MAX_VALUE))
             .addGroup(loginScreenLayout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -395,7 +407,6 @@ public class Main extends javax.swing.JFrame {
 
         toCharacterButton.setText("Go to Characters");
         toCharacterButton.setMaximumSize(new java.awt.Dimension(180, 40));
-        toCharacterButton.setMinimumSize(new java.awt.Dimension(115, 23));
         toCharacterButton.setPreferredSize(new java.awt.Dimension(180, 40));
         toCharacterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,13 +429,13 @@ public class Main extends javax.swing.JFrame {
         userScreenLayout.setHorizontalGroup(
             userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userScreenLayout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
+                .addContainerGap(160, Short.MAX_VALUE)
                 .addGroup(userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                     .addComponent(logOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(toCharacterButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(toUserManButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         userScreenLayout.setVerticalGroup(
             userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,16 +464,31 @@ public class Main extends javax.swing.JFrame {
         toNewCharButton.setMaximumSize(new java.awt.Dimension(180, 40));
         toNewCharButton.setMinimumSize(new java.awt.Dimension(180, 40));
         toNewCharButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        toNewCharButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toNewCharButtonActionPerformed(evt);
+            }
+        });
 
         charStatsButton.setText("Character Statistics");
         charStatsButton.setMaximumSize(new java.awt.Dimension(180, 40));
         charStatsButton.setMinimumSize(new java.awt.Dimension(180, 40));
         charStatsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        charStatsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                charStatsButtonActionPerformed(evt);
+            }
+        });
 
         toConnectServerButton.setText("Connect to Server");
         toConnectServerButton.setMaximumSize(new java.awt.Dimension(180, 40));
         toConnectServerButton.setMinimumSize(new java.awt.Dimension(180, 40));
         toConnectServerButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        toConnectServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toConnectServerButtonActionPerformed(evt);
+            }
+        });
 
         charLogOut.setText("Log Out");
         charLogOut.setMaximumSize(new java.awt.Dimension(180, 40));
@@ -489,19 +515,18 @@ public class Main extends javax.swing.JFrame {
         characterManagementScreenLayout.setHorizontalGroup(
             characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(87, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(52, 52, 52))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(52, 52, 52))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
-                        .addGroup(characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toNewCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(145, 145, 145))))
+                    .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toNewCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(145, 145, 145))
         );
         characterManagementScreenLayout.setVerticalGroup(
             characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -514,22 +539,29 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         mainPanel.add(characterManagementScreen, "characterManagementScreen");
 
         userManagementScreen.setMaximumSize(new java.awt.Dimension(480, 439));
         userManagementScreen.setMinimumSize(new java.awt.Dimension(480, 439));
+        userManagementScreen.setPreferredSize(new java.awt.Dimension(480, 440));
 
         toAddMoneyButton.setText("Add Money to Account");
         toAddMoneyButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         toAddMoneyButton.setMaximumSize(new java.awt.Dimension(180, 40));
         toAddMoneyButton.setMinimumSize(new java.awt.Dimension(180, 40));
         toAddMoneyButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        toAddMoneyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toAddMoneyButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel5.setText("User Management");
@@ -539,12 +571,22 @@ public class Main extends javax.swing.JFrame {
         toExtendSubButton.setMaximumSize(new java.awt.Dimension(180, 40));
         toExtendSubButton.setMinimumSize(new java.awt.Dimension(180, 40));
         toExtendSubButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        toExtendSubButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toExtendSubButtonActionPerformed(evt);
+            }
+        });
 
         toBuyCharsButton.setText("Buy Character Slots");
         toBuyCharsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         toBuyCharsButton.setMaximumSize(new java.awt.Dimension(180, 40));
         toBuyCharsButton.setMinimumSize(new java.awt.Dimension(180, 40));
         toBuyCharsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        toBuyCharsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toBuyCharsButtonActionPerformed(evt);
+            }
+        });
 
         userLogOutButton.setText("Log Out");
         userLogOutButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -575,24 +617,24 @@ public class Main extends javax.swing.JFrame {
             .addGroup(userManagementScreenLayout.createSequentialGroup()
                 .addGroup(userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(userManagementScreenLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(94, 94, 94)
                         .addComponent(jLabel5))
                     .addGroup(userManagementScreenLayout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addGroup(userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(switchToCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148)
+                        .addGroup(userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(toExtendSubButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(toAddMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(toBuyCharsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(switchToCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(userLogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         userManagementScreenLayout.setVerticalGroup(
             userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userManagementScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
-                .addGap(65, 65, 65)
+                .addGap(63, 63, 63)
                 .addComponent(toAddMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(toExtendSubButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -607,20 +649,179 @@ public class Main extends javax.swing.JFrame {
 
         mainPanel.add(userManagementScreen, "userManagementScreen");
 
+        addMoneyScreen.setMaximumSize(new java.awt.Dimension(480, 440));
+        addMoneyScreen.setMinimumSize(new java.awt.Dimension(480, 440));
+
+        javax.swing.GroupLayout addMoneyScreenLayout = new javax.swing.GroupLayout(addMoneyScreen);
+        addMoneyScreen.setLayout(addMoneyScreenLayout);
+        addMoneyScreenLayout.setHorizontalGroup(
+            addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 510, Short.MAX_VALUE)
+        );
+        addMoneyScreenLayout.setVerticalGroup(
+            addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(addMoneyScreen, "addMoneyScreen");
+
+        extendSubscriptionScreen.setMaximumSize(new java.awt.Dimension(480, 440));
+        extendSubscriptionScreen.setMinimumSize(new java.awt.Dimension(480, 440));
+        extendSubscriptionScreen.setPreferredSize(new java.awt.Dimension(480, 440));
+
+        javax.swing.GroupLayout extendSubscriptionScreenLayout = new javax.swing.GroupLayout(extendSubscriptionScreen);
+        extendSubscriptionScreen.setLayout(extendSubscriptionScreenLayout);
+        extendSubscriptionScreenLayout.setHorizontalGroup(
+            extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 510, Short.MAX_VALUE)
+        );
+        extendSubscriptionScreenLayout.setVerticalGroup(
+            extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(extendSubscriptionScreen, "extendSubscriptionScreen");
+
+        buySlotsScreen.setMaximumSize(new java.awt.Dimension(480, 440));
+        buySlotsScreen.setMinimumSize(new java.awt.Dimension(480, 440));
+        buySlotsScreen.setPreferredSize(new java.awt.Dimension(480, 440));
+
+        javax.swing.GroupLayout buySlotsScreenLayout = new javax.swing.GroupLayout(buySlotsScreen);
+        buySlotsScreen.setLayout(buySlotsScreenLayout);
+        buySlotsScreenLayout.setHorizontalGroup(
+            buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 510, Short.MAX_VALUE)
+        );
+        buySlotsScreenLayout.setVerticalGroup(
+            buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        mainPanel.add(buySlotsScreen, "buySlotsScreen");
+
+        createCharacterScreen.setMaximumSize(new java.awt.Dimension(480, 440));
+        createCharacterScreen.setMinimumSize(new java.awt.Dimension(480, 440));
+        createCharacterScreen.setPreferredSize(new java.awt.Dimension(480, 440));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel9.setText("Character Management");
+
+        ccBackButton.setText("Back");
+        ccBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        ccBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        ccBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        javax.swing.GroupLayout createCharacterScreenLayout = new javax.swing.GroupLayout(createCharacterScreen);
+        createCharacterScreen.setLayout(createCharacterScreenLayout);
+        createCharacterScreenLayout.setHorizontalGroup(
+            createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createCharacterScreenLayout.createSequentialGroup()
+                .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(createCharacterScreenLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel9))
+                    .addGroup(createCharacterScreenLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(ccBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+        createCharacterScreenLayout.setVerticalGroup(
+            createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createCharacterScreenLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addComponent(ccBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        mainPanel.add(createCharacterScreen, "createCharacterScreen");
+
+        connectServerScreen.setMaximumSize(new java.awt.Dimension(480, 440));
+        connectServerScreen.setMinimumSize(new java.awt.Dimension(480, 440));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel11.setText("Character Management");
+        jLabel11.setInheritsPopupMenu(false);
+
+        jButton1.setText("Back");
+        jButton1.setMaximumSize(new java.awt.Dimension(180, 40));
+        jButton1.setMinimumSize(new java.awt.Dimension(180, 40));
+        jButton1.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        javax.swing.GroupLayout connectServerScreenLayout = new javax.swing.GroupLayout(connectServerScreen);
+        connectServerScreen.setLayout(connectServerScreenLayout);
+        connectServerScreenLayout.setHorizontalGroup(
+            connectServerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(connectServerScreenLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel11)
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, connectServerScreenLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(164, 164, 164))
+        );
+        connectServerScreenLayout.setVerticalGroup(
+            connectServerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(connectServerScreenLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        mainPanel.add(connectServerScreen, "connectServerScreen");
+
+        charStatsScreen.setMaximumSize(new java.awt.Dimension(480, 440));
+        charStatsScreen.setMinimumSize(new java.awt.Dimension(480, 440));
+        charStatsScreen.setPreferredSize(new java.awt.Dimension(480, 440));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel10.setText("Character Management");
+
+        csBackButton.setText("Back");
+        csBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        csBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        csBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        javax.swing.GroupLayout charStatsScreenLayout = new javax.swing.GroupLayout(charStatsScreen);
+        charStatsScreen.setLayout(charStatsScreenLayout);
+        charStatsScreenLayout.setHorizontalGroup(
+            charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(charStatsScreenLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel10)
+                .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(148, 148, 148))
+        );
+        charStatsScreenLayout.setVerticalGroup(
+            charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(charStatsScreenLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+        );
+
+        mainPanel.add(charStatsScreen, "charStatsScreen");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -711,6 +912,36 @@ public class Main extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "mainScreen");
     }//GEN-LAST:event_charLogOutActionPerformed
+
+    private void toAddMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toAddMoneyButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "addMoneyScreen");
+    }//GEN-LAST:event_toAddMoneyButtonActionPerformed
+
+    private void toExtendSubButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toExtendSubButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "extendSubscriptionScreen");
+    }//GEN-LAST:event_toExtendSubButtonActionPerformed
+
+    private void toBuyCharsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toBuyCharsButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "buySlotsScreen");
+    }//GEN-LAST:event_toBuyCharsButtonActionPerformed
+
+    private void toNewCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toNewCharButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "createCharacterScreen");
+    }//GEN-LAST:event_toNewCharButtonActionPerformed
+
+    private void toConnectServerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toConnectServerButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "connectServerScreen");
+    }//GEN-LAST:event_toConnectServerButtonActionPerformed
+
+    private void charStatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_charStatsButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "charStatsScreen");
+    }//GEN-LAST:event_charStatsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -825,12 +1056,23 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField IBANField;
     private javax.swing.JLabel IBANText;
+    private javax.swing.JPanel addMoneyScreen;
+    private javax.swing.JPanel buySlotsScreen;
+    private javax.swing.JButton ccBackButton;
     private javax.swing.JButton charLogOut;
     private javax.swing.JButton charStatsButton;
+    private javax.swing.JPanel charStatsScreen;
     private javax.swing.JPanel characterManagementScreen;
+    private javax.swing.JPanel connectServerScreen;
+    private javax.swing.JPanel createCharacterScreen;
+    private javax.swing.JButton csBackButton;
+    private javax.swing.JPanel extendSubscriptionScreen;
     private javax.swing.JFormattedTextField firstNameField;
     private javax.swing.JLabel firstNameText;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -838,6 +1080,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JFormattedTextField lastNameField;
     private javax.swing.JLabel lastNameText;
     private javax.swing.JButton logInButton;
