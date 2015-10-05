@@ -35,13 +35,13 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost/dev1",
-            "postgres", "lollipop");
+        /*try {
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/Assignment1",
+            "postgres", "0891990");
         } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
          System.exit(0);
-    }
+    }*/
     }
 
     /**
@@ -81,6 +81,22 @@ public class Main extends javax.swing.JFrame {
         userScreen = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logOutButton = new javax.swing.JButton();
+        toCharacterButton = new javax.swing.JButton();
+        toUserManButton = new javax.swing.JButton();
+        characterManagementScreen = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        toNewCharButton = new javax.swing.JButton();
+        charStatsButton = new javax.swing.JButton();
+        toConnectServerButton = new javax.swing.JButton();
+        charLogOut = new javax.swing.JButton();
+        switchToUserButton = new javax.swing.JButton();
+        userManagementScreen = new javax.swing.JPanel();
+        toAddMoneyButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        toExtendSubButton = new javax.swing.JButton();
+        toBuyCharsButton = new javax.swing.JButton();
+        userLogOutButton = new javax.swing.JButton();
+        switchToCharButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 0));
@@ -152,9 +168,9 @@ public class Main extends javax.swing.JFrame {
         registerScreen.setPreferredSize(new java.awt.Dimension(480, 440));
 
         registerButton.setText("Register");
-        registerButton.setMaximumSize(new java.awt.Dimension(80, 25));
-        registerButton.setMinimumSize(new java.awt.Dimension(80, 25));
-        registerButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        registerButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        registerButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        registerButton.setPreferredSize(new java.awt.Dimension(180, 40));
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
@@ -169,7 +185,7 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(130, 40));
         jLabel2.setPreferredSize(new java.awt.Dimension(130, 40));
 
-        usernameText.setText("username");
+        usernameText.setText("Username");
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,9 +193,9 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        passwordText.setText("password");
+        passwordText.setText("Password");
 
-        firstNameText.setText("first name");
+        firstNameText.setText("First Name");
 
         firstNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +203,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        lastNameText.setText("last name");
+        lastNameText.setText("Last Name");
 
         lastNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,43 +230,42 @@ public class Main extends javax.swing.JFrame {
         registerScreenLayout.setHorizontalGroup(
             registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerScreenLayout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
-                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(200, 200, 200))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
-                        .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(registerScreenLayout.createSequentialGroup()
-                                .addComponent(firstNameText)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(registerScreenLayout.createSequentialGroup()
-                                .addComponent(lastNameText)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(registerScreenLayout.createSequentialGroup()
-                                .addComponent(IBANText)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(registerScreenLayout.createSequentialGroup()
-                                .addComponent(passwordText)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
-                                    .addComponent(usernameText)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(163, 163, 163))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(registerScreenLayout.createSequentialGroup()
+                        .addComponent(firstNameText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(registerScreenLayout.createSequentialGroup()
+                        .addComponent(lastNameText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(registerScreenLayout.createSequentialGroup()
+                        .addComponent(IBANText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(registerScreenLayout.createSequentialGroup()
+                        .addComponent(passwordText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
+                            .addComponent(usernameText)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(163, 163, 163))
+            .addGroup(registerScreenLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         registerScreenLayout.setVerticalGroup(
             registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameText))
@@ -369,12 +384,32 @@ public class Main extends javax.swing.JFrame {
 
         logOutButton.setText("Log Out");
         logOutButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        logOutButton.setMaximumSize(new java.awt.Dimension(80, 25));
-        logOutButton.setMinimumSize(new java.awt.Dimension(80, 25));
-        logOutButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        logOutButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        logOutButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        logOutButton.setPreferredSize(new java.awt.Dimension(180, 40));
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOutButtonActionPerformed(evt);
+            }
+        });
+
+        toCharacterButton.setText("Go to Characters");
+        toCharacterButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        toCharacterButton.setMinimumSize(new java.awt.Dimension(115, 23));
+        toCharacterButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        toCharacterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toCharacterButtonActionPerformed(evt);
+            }
+        });
+
+        toUserManButton.setText("Go to User Management");
+        toUserManButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        toUserManButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        toUserManButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        toUserManButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toUserManButtonActionPerformed(evt);
             }
         });
 
@@ -382,26 +417,195 @@ public class Main extends javax.swing.JFrame {
         userScreen.setLayout(userScreenLayout);
         userScreenLayout.setHorizontalGroup(
             userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userScreenLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(userScreenLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE)
+                .addGroup(userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .addComponent(logOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(toCharacterButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(toUserManButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         userScreenLayout.setVerticalGroup(
             userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addComponent(toUserManButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(toCharacterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+                .addGap(29, 29, 29))
         );
 
         mainPanel.add(userScreen, "userScreen");
+
+        characterManagementScreen.setMaximumSize(new java.awt.Dimension(480, 439));
+        characterManagementScreen.setMinimumSize(new java.awt.Dimension(480, 439));
+        characterManagementScreen.setPreferredSize(new java.awt.Dimension(480, 439));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel8.setText("Character Management");
+
+        toNewCharButton.setText("Create New Character");
+        toNewCharButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        toNewCharButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        toNewCharButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        charStatsButton.setText("Character Statistics");
+        charStatsButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        charStatsButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        charStatsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        toConnectServerButton.setText("Connect to Server");
+        toConnectServerButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        toConnectServerButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        toConnectServerButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        charLogOut.setText("Log Out");
+        charLogOut.setMaximumSize(new java.awt.Dimension(180, 40));
+        charLogOut.setMinimumSize(new java.awt.Dimension(180, 40));
+        charLogOut.setPreferredSize(new java.awt.Dimension(180, 40));
+        charLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                charLogOutActionPerformed(evt);
+            }
+        });
+
+        switchToUserButton.setText("Switch to User");
+        switchToUserButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        switchToUserButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        switchToUserButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        switchToUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchToUserButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout characterManagementScreenLayout = new javax.swing.GroupLayout(characterManagementScreen);
+        characterManagementScreen.setLayout(characterManagementScreenLayout);
+        characterManagementScreenLayout.setHorizontalGroup(
+            characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addGroup(characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
+                        .addGroup(characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toNewCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(145, 145, 145))))
+        );
+        characterManagementScreenLayout.setVerticalGroup(
+            characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(characterManagementScreenLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel8)
+                .addGap(53, 53, 53)
+                .addComponent(toNewCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        mainPanel.add(characterManagementScreen, "characterManagementScreen");
+
+        userManagementScreen.setMaximumSize(new java.awt.Dimension(480, 439));
+        userManagementScreen.setMinimumSize(new java.awt.Dimension(480, 439));
+
+        toAddMoneyButton.setText("Add Money to Account");
+        toAddMoneyButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toAddMoneyButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        toAddMoneyButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        toAddMoneyButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel5.setText("User Management");
+
+        toExtendSubButton.setText("Extend Subscription");
+        toExtendSubButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toExtendSubButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        toExtendSubButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        toExtendSubButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        toBuyCharsButton.setText("Buy Character Slots");
+        toBuyCharsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        toBuyCharsButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        toBuyCharsButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        toBuyCharsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+
+        userLogOutButton.setText("Log Out");
+        userLogOutButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        userLogOutButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        userLogOutButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        userLogOutButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        userLogOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userLogOutButtonActionPerformed(evt);
+            }
+        });
+
+        switchToCharButton.setText("Switch to Character");
+        switchToCharButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        switchToCharButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        switchToCharButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        switchToCharButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        switchToCharButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchToCharButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout userManagementScreenLayout = new javax.swing.GroupLayout(userManagementScreen);
+        userManagementScreen.setLayout(userManagementScreenLayout);
+        userManagementScreenLayout.setHorizontalGroup(
+            userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userManagementScreenLayout.createSequentialGroup()
+                .addGroup(userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userManagementScreenLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabel5))
+                    .addGroup(userManagementScreenLayout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addGroup(userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(switchToCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toExtendSubButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toAddMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toBuyCharsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userLogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+        userManagementScreenLayout.setVerticalGroup(
+            userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userManagementScreenLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel5)
+                .addGap(65, 65, 65)
+                .addComponent(toAddMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(toExtendSubButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(toBuyCharsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(switchToCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(userLogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(userManagementScreen, "userManagementScreen");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -444,7 +648,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void logInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInButtonActionPerformed
-        getUser();
+        //getUser();
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "userScreen");
     }//GEN-LAST:event_logInButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
@@ -474,6 +680,37 @@ public class Main extends javax.swing.JFrame {
     private void logInPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logInPasswordFieldActionPerformed
+
+    private void toCharacterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toCharacterButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "characterManagementScreen");
+    }//GEN-LAST:event_toCharacterButtonActionPerformed
+
+    private void toUserManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toUserManButtonActionPerformed
+        System.out.print("does this work");
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "userManagementScreen");
+    }//GEN-LAST:event_toUserManButtonActionPerformed
+
+    private void switchToCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchToCharButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "characterManagementScreen");
+    }//GEN-LAST:event_switchToCharButtonActionPerformed
+
+    private void userLogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userLogOutButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "mainScreen");
+    }//GEN-LAST:event_userLogOutButtonActionPerformed
+
+    private void switchToUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchToUserButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "userManagementScreen");
+    }//GEN-LAST:event_switchToUserButtonActionPerformed
+
+    private void charLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_charLogOutActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "mainScreen");
+    }//GEN-LAST:event_charLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -518,7 +755,7 @@ public class Main extends javax.swing.JFrame {
         String reg_firstName = firstNameField.getText();      
         String reg_lastName = lastNameField.getText();
         String reg_iban = IBANField.getText();
-        try {
+        /*try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM Users WHERE user_name = '" + reg_username + "';" );
             while ( rs.next() ) {
@@ -528,7 +765,7 @@ public class Main extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         /*if(reg_username.equals(reg_username)){
             System.out.println("het werkt");
         } else{
@@ -543,7 +780,7 @@ public class Main extends javax.swing.JFrame {
         }*/
         
     }
-    public void getUser(){
+    /*public void getUser(){
         
     try{
     stmt = connection.createStatement();
@@ -566,7 +803,7 @@ public class Main extends javax.swing.JFrame {
         }else{
             System.out.println("username or password doesn't match");
         }
-    }
+    }*/
     
     public static void persist(Object object) 
     {
@@ -588,14 +825,19 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField IBANField;
     private javax.swing.JLabel IBANText;
+    private javax.swing.JButton charLogOut;
+    private javax.swing.JButton charStatsButton;
+    private javax.swing.JPanel characterManagementScreen;
     private javax.swing.JFormattedTextField firstNameField;
     private javax.swing.JLabel firstNameText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JFormattedTextField lastNameField;
     private javax.swing.JLabel lastNameText;
     private javax.swing.JButton logInButton;
@@ -611,6 +853,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton registerButton;
     private javax.swing.JPanel registerScreen;
     private javax.swing.JButton registerScreenButton;
+    private javax.swing.JButton switchToCharButton;
+    private javax.swing.JButton switchToUserButton;
+    private javax.swing.JButton toAddMoneyButton;
+    private javax.swing.JButton toBuyCharsButton;
+    private javax.swing.JButton toCharacterButton;
+    private javax.swing.JButton toConnectServerButton;
+    private javax.swing.JButton toExtendSubButton;
+    private javax.swing.JButton toNewCharButton;
+    private javax.swing.JButton toUserManButton;
+    private javax.swing.JButton userLogOutButton;
+    private javax.swing.JPanel userManagementScreen;
     private javax.swing.JPanel userScreen;
     private javax.swing.JFormattedTextField usernameField;
     private javax.swing.JLabel usernameText;
