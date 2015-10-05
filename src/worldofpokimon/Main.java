@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 /**
@@ -112,6 +113,12 @@ public class Main extends javax.swing.JFrame {
         extendSubscriptionScreen = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         esBackButton = new javax.swing.JButton();
+        oneMonthSubscription = new javax.swing.JRadioButton();
+        twoMonthsSubscription = new javax.swing.JRadioButton();
+        threeMonthsSubscription = new javax.swing.JRadioButton();
+        yearSubscription = new javax.swing.JRadioButton();
+        jLabel16 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         buySlotsScreen = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         bsBackButton = new javax.swing.JButton();
@@ -785,6 +792,22 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        oneMonthSubscription.setText("€5 - One Month");
+
+        twoMonthsSubscription.setText("€8 - Two Months");
+
+        threeMonthsSubscription.setText("€10 - Three Months");
+
+        yearSubscription.setText("€35 - One Year");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Subscription");
+
+        jButton1.setText("Confirm Subscription");
+        jButton1.setMaximumSize(new java.awt.Dimension(180, 40));
+        jButton1.setMinimumSize(new java.awt.Dimension(180, 40));
+        jButton1.setPreferredSize(new java.awt.Dimension(180, 40));
+
         javax.swing.GroupLayout extendSubscriptionScreenLayout = new javax.swing.GroupLayout(extendSubscriptionScreen);
         extendSubscriptionScreen.setLayout(extendSubscriptionScreenLayout);
         extendSubscriptionScreenLayout.setHorizontalGroup(
@@ -795,8 +818,19 @@ public class Main extends javax.swing.JFrame {
                         .addGap(96, 96, 96)
                         .addComponent(jLabel13))
                     .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(threeMonthsSubscription)
+                            .addComponent(yearSubscription, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(oneMonthSubscription, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel16)
+                                .addComponent(twoMonthsSubscription))))
+                    .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
         extendSubscriptionScreenLayout.setVerticalGroup(
@@ -804,7 +838,19 @@ public class Main extends javax.swing.JFrame {
             .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addGap(39, 39, 39)
+                .addComponent(oneMonthSubscription)
+                .addGap(18, 18, 18)
+                .addComponent(twoMonthsSubscription)
+                .addGap(18, 18, 18)
+                .addComponent(threeMonthsSubscription)
+                .addGap(18, 18, 18)
+                .addComponent(yearSubscription)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1089,6 +1135,7 @@ public class Main extends javax.swing.JFrame {
     private void toExtendSubButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toExtendSubButtonActionPerformed
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "extendSubscriptionScreen");
+        groupButton();
     }//GEN-LAST:event_toExtendSubButtonActionPerformed
 
     private void toBuyCharsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toBuyCharsButtonActionPerformed
@@ -1157,6 +1204,7 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(addMoneyScreen, "Money is added to account");
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "userManagementScreen");
+        moneyField.setText("");
     }//GEN-LAST:event_addMoneyButtonActionPerformed
 
     /**
@@ -1269,11 +1317,11 @@ public class Main extends javax.swing.JFrame {
     
     public void addMoney()
     {
+        int amountOfMoneyAdded = Integer.parseInt(moneyField.getText());
+        
         try
         {
             stmt = connection.createStatement();
-           
-            int amountOfMoneyAdded = Integer.parseInt(moneyField.getText());
             
             String updateBalance = "UPDATE Users SET balance = balance + '"+amountOfMoneyAdded+"' " 
                     + "WHERE user_name = '"+loggedInUser+"'";
@@ -1300,6 +1348,16 @@ public class Main extends javax.swing.JFrame {
             em.close();
         }
     }
+    
+    private void groupButton()
+    {
+        ButtonGroup bgSubscription = new ButtonGroup();
+        
+        bgSubscription.add(oneMonthSubscription);
+        bgSubscription.add(twoMonthsSubscription);
+        bgSubscription.add(threeMonthsSubscription);
+        bgSubscription.add(yearSubscription);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1324,6 +1382,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel extendSubscriptionScreen;
     private javax.swing.JFormattedTextField firstNameField;
     private javax.swing.JLabel firstNameText;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1331,6 +1390,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1351,6 +1411,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel mainScreen;
     private javax.swing.JTextField moneyField;
+    private javax.swing.JRadioButton oneMonthSubscription;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordText;
     private javax.swing.JButton registerButton;
@@ -1358,6 +1419,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton registerScreenButton;
     private javax.swing.JButton switchToCharButton;
     private javax.swing.JButton switchToUserButton;
+    private javax.swing.JRadioButton threeMonthsSubscription;
     private javax.swing.JButton toAddMoneyButton;
     private javax.swing.JButton toBuyCharsButton;
     private javax.swing.JButton toCharacterButton;
@@ -1365,11 +1427,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton toExtendSubButton;
     private javax.swing.JButton toNewCharButton;
     private javax.swing.JButton toUserManButton;
+    private javax.swing.JRadioButton twoMonthsSubscription;
     private javax.swing.JButton userLogOutButton;
     private javax.swing.JPanel userManagementScreen;
     private javax.swing.JPanel userScreen;
     private javax.swing.JFormattedTextField usernameField;
     private javax.swing.JLabel usernameText;
+    private javax.swing.JRadioButton yearSubscription;
     // End of variables declaration//GEN-END:variables
 
 }
