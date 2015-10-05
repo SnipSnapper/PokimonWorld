@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,8 +40,8 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost/dev1",
-            "postgres", "lollipop");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/Assignment1",
+            "postgres", "0891990");
         } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
          System.exit(0);
@@ -105,6 +106,9 @@ public class Main extends javax.swing.JFrame {
         addMoneyScreen = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         addMoneyBackButton = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        moneyField = new javax.swing.JTextField();
+        addMoneyButton = new javax.swing.JButton();
         extendSubscriptionScreen = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         esBackButton = new javax.swing.JButton();
@@ -123,7 +127,6 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 0));
-        setMaximumSize(new java.awt.Dimension(500, 500));
         setMinimumSize(new java.awt.Dimension(500, 500));
         setResizable(false);
 
@@ -715,6 +718,18 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setText("Amount of Money");
+
+        addMoneyButton.setText("Add Money to Account");
+        addMoneyButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        addMoneyButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        addMoneyButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        addMoneyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMoneyButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout addMoneyScreenLayout = new javax.swing.GroupLayout(addMoneyScreen);
         addMoneyScreen.setLayout(addMoneyScreenLayout);
         addMoneyScreenLayout.setHorizontalGroup(
@@ -725,7 +740,14 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addMoneyScreenLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addMoneyBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addMoneyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(addMoneyBackButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addMoneyScreenLayout.createSequentialGroup()
+                            .addComponent(jLabel15)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(moneyField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(149, 149, 149))
         );
         addMoneyScreenLayout.setVerticalGroup(
@@ -733,7 +755,13 @@ public class Main extends javax.swing.JFrame {
             .addGroup(addMoneyScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addGap(91, 91, 91)
+                .addGroup(addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(moneyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(addMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
                 .addComponent(addMoneyBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1028,7 +1056,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_toCharacterButtonActionPerformed
 
     private void toUserManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toUserManButtonActionPerformed
-        System.out.print("does this work");
+        System.out.println("does this work");
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "userManagementScreen");
     }//GEN-LAST:event_toUserManButtonActionPerformed
@@ -1124,6 +1152,13 @@ public class Main extends javax.swing.JFrame {
         card.show(mainPanel, "mainScreen");
     }//GEN-LAST:event_loginBackButtonActionPerformed
 
+    private void addMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoneyButtonActionPerformed
+        addMoney();
+        JOptionPane.showMessageDialog(addMoneyScreen, "Money is added to account");
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "userManagementScreen");
+    }//GEN-LAST:event_addMoneyButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1207,6 +1242,7 @@ public class Main extends javax.swing.JFrame {
             lastNameField.setText("");
     
     }
+    
     public void getUser(){
         logInUsername = logInUsernameField.getText();
         logInPassword = logInPasswordField.getText();
@@ -1214,7 +1250,8 @@ public class Main extends javax.swing.JFrame {
         
         try {
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE user_name = '" + logInUsername + "' AND password = '" + logInPassword + "'");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE user_name = '" + 
+                    logInUsername + "' AND password = '" + logInPassword + "'");
             if(rs.next()){
                 
                 CardLayout card = (CardLayout)mainPanel.getLayout();
@@ -1227,6 +1264,26 @@ public class Main extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void addMoney()
+    {
+        try
+        {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE user_name = '" + 
+                    loggedInUser + "'");
+            System.out.println(loggedInUser);
+            int amountOfMoneyAdded = Integer.parseInt(moneyField.getText());
+            
+            String updateBalance = "UPDATE Users SET balance = balance + '"+amountOfMoneyAdded+"' " 
+                    + "WHERE user_name = '"+loggedInUser+"'";
+            stmt.executeUpdate(updateBalance);
+            
+        } catch (Exception e)
+        {
+          e.getMessage();
         }
     }
     
@@ -1251,6 +1308,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField IBANField;
     private javax.swing.JLabel IBANText;
     private javax.swing.JButton addMoneyBackButton;
+    private javax.swing.JButton addMoneyButton;
     private javax.swing.JPanel addMoneyScreen;
     private javax.swing.JButton backButton;
     private javax.swing.JButton bsBackButton;
@@ -1274,6 +1332,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1293,6 +1352,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton loginScreenButton;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel mainScreen;
+    private javax.swing.JTextField moneyField;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordText;
     private javax.swing.JButton registerButton;
