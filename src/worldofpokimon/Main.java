@@ -98,14 +98,20 @@ public class Main extends javax.swing.JFrame {
         userLogOutButton = new javax.swing.JButton();
         switchToCharButton = new javax.swing.JButton();
         addMoneyScreen = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        addMoneyBackButton = new javax.swing.JButton();
         extendSubscriptionScreen = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        esBackButton = new javax.swing.JButton();
         buySlotsScreen = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        bsBackButton = new javax.swing.JButton();
         createCharacterScreen = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         ccBackButton = new javax.swing.JButton();
         connectServerScreen = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        conServerBackButton = new javax.swing.JButton();
         charStatsScreen = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         csBackButton = new javax.swing.JButton();
@@ -652,15 +658,41 @@ public class Main extends javax.swing.JFrame {
         addMoneyScreen.setMaximumSize(new java.awt.Dimension(480, 440));
         addMoneyScreen.setMinimumSize(new java.awt.Dimension(480, 440));
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel12.setText("User Management");
+
+        addMoneyBackButton.setText("Back");
+        addMoneyBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        addMoneyBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        addMoneyBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        addMoneyBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMoneyBackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout addMoneyScreenLayout = new javax.swing.GroupLayout(addMoneyScreen);
         addMoneyScreen.setLayout(addMoneyScreenLayout);
         addMoneyScreenLayout.setHorizontalGroup(
             addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGroup(addMoneyScreenLayout.createSequentialGroup()
+                .addGroup(addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addMoneyScreenLayout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jLabel12))
+                    .addGroup(addMoneyScreenLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(addMoneyBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         addMoneyScreenLayout.setVerticalGroup(
             addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(addMoneyScreenLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addComponent(addMoneyBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         mainPanel.add(addMoneyScreen, "addMoneyScreen");
@@ -669,15 +701,41 @@ public class Main extends javax.swing.JFrame {
         extendSubscriptionScreen.setMinimumSize(new java.awt.Dimension(480, 440));
         extendSubscriptionScreen.setPreferredSize(new java.awt.Dimension(480, 440));
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel13.setText("User Management");
+
+        esBackButton.setText("Back");
+        esBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        esBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        esBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        esBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                esBackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout extendSubscriptionScreenLayout = new javax.swing.GroupLayout(extendSubscriptionScreen);
         extendSubscriptionScreen.setLayout(extendSubscriptionScreenLayout);
         extendSubscriptionScreenLayout.setHorizontalGroup(
             extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
+                .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel13))
+                    .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         extendSubscriptionScreenLayout.setVerticalGroup(
             extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         mainPanel.add(extendSubscriptionScreen, "extendSubscriptionScreen");
@@ -686,15 +744,41 @@ public class Main extends javax.swing.JFrame {
         buySlotsScreen.setMinimumSize(new java.awt.Dimension(480, 440));
         buySlotsScreen.setPreferredSize(new java.awt.Dimension(480, 440));
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel14.setText("User Management");
+
+        bsBackButton.setText("Back");
+        bsBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        bsBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        bsBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        bsBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsBackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout buySlotsScreenLayout = new javax.swing.GroupLayout(buySlotsScreen);
         buySlotsScreen.setLayout(buySlotsScreenLayout);
         buySlotsScreenLayout.setHorizontalGroup(
             buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jLabel14))
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         buySlotsScreenLayout.setVerticalGroup(
             buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         mainPanel.add(buySlotsScreen, "buySlotsScreen");
@@ -710,6 +794,11 @@ public class Main extends javax.swing.JFrame {
         ccBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
         ccBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
         ccBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        ccBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ccBackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout createCharacterScreenLayout = new javax.swing.GroupLayout(createCharacterScreen);
         createCharacterScreen.setLayout(createCharacterScreenLayout);
@@ -718,12 +807,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(createCharacterScreenLayout.createSequentialGroup()
                 .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(createCharacterScreenLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(68, 68, 68)
                         .addComponent(jLabel9))
                     .addGroup(createCharacterScreenLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
+                        .addGap(157, 157, 157)
                         .addComponent(ccBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         createCharacterScreenLayout.setVerticalGroup(
             createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -744,10 +833,15 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setText("Character Management");
         jLabel11.setInheritsPopupMenu(false);
 
-        jButton1.setText("Back");
-        jButton1.setMaximumSize(new java.awt.Dimension(180, 40));
-        jButton1.setMinimumSize(new java.awt.Dimension(180, 40));
-        jButton1.setPreferredSize(new java.awt.Dimension(180, 40));
+        conServerBackButton.setText("Back");
+        conServerBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        conServerBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        conServerBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        conServerBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conServerBackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout connectServerScreenLayout = new javax.swing.GroupLayout(connectServerScreen);
         connectServerScreen.setLayout(connectServerScreenLayout);
@@ -759,7 +853,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, connectServerScreenLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(conServerBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(164, 164, 164))
         );
         connectServerScreenLayout.setVerticalGroup(
@@ -768,7 +862,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(conServerBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -785,19 +879,25 @@ public class Main extends javax.swing.JFrame {
         csBackButton.setMaximumSize(new java.awt.Dimension(180, 40));
         csBackButton.setMinimumSize(new java.awt.Dimension(180, 40));
         csBackButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        csBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csBackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout charStatsScreenLayout = new javax.swing.GroupLayout(charStatsScreen);
         charStatsScreen.setLayout(charStatsScreenLayout);
         charStatsScreenLayout.setHorizontalGroup(
             charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(charStatsScreenLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel10)
-                .addContainerGap(84, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
+                .addContainerGap(71, Short.MAX_VALUE)
+                .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
+                        .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))))
         );
         charStatsScreenLayout.setVerticalGroup(
             charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -943,6 +1043,36 @@ public class Main extends javax.swing.JFrame {
         card.show(mainPanel, "charStatsScreen");
     }//GEN-LAST:event_charStatsButtonActionPerformed
 
+    private void addMoneyBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoneyBackButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "userManagementScreen");
+    }//GEN-LAST:event_addMoneyBackButtonActionPerformed
+
+    private void esBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esBackButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "userManagementScreen");
+    }//GEN-LAST:event_esBackButtonActionPerformed
+
+    private void bsBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsBackButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "userManagementScreen");
+    }//GEN-LAST:event_bsBackButtonActionPerformed
+
+    private void ccBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ccBackButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "characterManagementScreen");
+    }//GEN-LAST:event_ccBackButtonActionPerformed
+
+    private void conServerBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conServerBackButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "characterManagementScreen");
+    }//GEN-LAST:event_conServerBackButtonActionPerformed
+
+    private void csBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csBackButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "characterManagementScreen");
+    }//GEN-LAST:event_csBackButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1056,23 +1186,29 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField IBANField;
     private javax.swing.JLabel IBANText;
+    private javax.swing.JButton addMoneyBackButton;
     private javax.swing.JPanel addMoneyScreen;
+    private javax.swing.JButton bsBackButton;
     private javax.swing.JPanel buySlotsScreen;
     private javax.swing.JButton ccBackButton;
     private javax.swing.JButton charLogOut;
     private javax.swing.JButton charStatsButton;
     private javax.swing.JPanel charStatsScreen;
     private javax.swing.JPanel characterManagementScreen;
+    private javax.swing.JButton conServerBackButton;
     private javax.swing.JPanel connectServerScreen;
     private javax.swing.JPanel createCharacterScreen;
     private javax.swing.JButton csBackButton;
+    private javax.swing.JButton esBackButton;
     private javax.swing.JPanel extendSubscriptionScreen;
     private javax.swing.JFormattedTextField firstNameField;
     private javax.swing.JLabel firstNameText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
