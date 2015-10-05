@@ -118,6 +118,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 0));
+        setMaximumSize(new java.awt.Dimension(500, 500));
         setMinimumSize(new java.awt.Dimension(500, 500));
         setResizable(false);
 
@@ -1045,7 +1046,7 @@ public class Main extends javax.swing.JFrame {
 
     private void toConnectServerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toConnectServerButtonActionPerformed
         CardLayout card = (CardLayout)mainPanel.getLayout();
-        card.show(mainPanel, "connectServerScreen");
+        card.show(mainPanel, "connectServerScreen");//jj
     }//GEN-LAST:event_toConnectServerButtonActionPerformed
 
     private void charStatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_charStatsButtonActionPerformed
