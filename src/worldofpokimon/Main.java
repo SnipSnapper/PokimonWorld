@@ -129,9 +129,9 @@ public class Main extends javax.swing.JFrame {
 
         registerScreenButton.setText("Register");
         registerScreenButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        registerScreenButton.setMaximumSize(new java.awt.Dimension(100, 25));
-        registerScreenButton.setMinimumSize(new java.awt.Dimension(100, 25));
-        registerScreenButton.setPreferredSize(new java.awt.Dimension(100, 25));
+        registerScreenButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        registerScreenButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        registerScreenButton.setPreferredSize(new java.awt.Dimension(180, 40));
         registerScreenButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerScreenButtonActionPerformed(evt);
@@ -140,9 +140,9 @@ public class Main extends javax.swing.JFrame {
 
         loginScreenButton.setText("Log In");
         loginScreenButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        loginScreenButton.setMaximumSize(new java.awt.Dimension(100, 25));
-        loginScreenButton.setMinimumSize(new java.awt.Dimension(100, 25));
-        loginScreenButton.setPreferredSize(new java.awt.Dimension(100, 25));
+        loginScreenButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        loginScreenButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        loginScreenButton.setPreferredSize(new java.awt.Dimension(180, 40));
         loginScreenButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginScreenButtonActionPerformed(evt);
@@ -160,7 +160,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainScreenLayout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(mainScreenLayout.createSequentialGroup()
                         .addComponent(loginScreenButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -203,7 +203,9 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(130, 40));
         jLabel2.setPreferredSize(new java.awt.Dimension(130, 40));
 
+        usernameText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         usernameText.setText("Username");
+        usernameText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,8 +213,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        passwordText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         passwordText.setText("Password");
 
+        firstNameText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         firstNameText.setText("First Name");
 
         firstNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -221,6 +225,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        lastNameText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lastNameText.setText("Last Name");
 
         lastNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +234,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        IBANText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         IBANText.setText("IBAN");
 
         IBANField.addActionListener(new java.awt.event.ActionListener() {
@@ -247,75 +253,78 @@ public class Main extends javax.swing.JFrame {
         registerScreen.setLayout(registerScreenLayout);
         registerScreenLayout.setHorizontalGroup(
             registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
+                .addContainerGap(188, Short.MAX_VALUE)
+                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
+                        .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(registerScreenLayout.createSequentialGroup()
+                                .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(registerScreenLayout.createSequentialGroup()
+                                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(IBANText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lastNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE))
+                                    .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(firstNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                                        .addComponent(passwordText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186))))
             .addGroup(registerScreenLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(registerScreenLayout.createSequentialGroup()
-                        .addComponent(firstNameText)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(registerScreenLayout.createSequentialGroup()
-                        .addComponent(lastNameText)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(registerScreenLayout.createSequentialGroup()
-                        .addComponent(IBANText)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(registerScreenLayout.createSequentialGroup()
-                        .addComponent(passwordText)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
-                            .addComponent(usernameText)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(163, 163, 163))
-            .addGroup(registerScreenLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(174, 174, 174)
                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         registerScreenLayout.setVerticalGroup(
             registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameText))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordText))
-                .addGap(11, 11, 11)
-                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameText)
-                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lastNameText)
-                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameText))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IBANText)
-                    .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameText))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IBANField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IBANText))
+                .addGap(46, 46, 46)
                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(55, 55, 55))
         );
 
         mainPanel.add(registerScreen, "registerScreen");
 
+        loginScreen.setMaximumSize(new java.awt.Dimension(480, 439));
+        loginScreen.setMinimumSize(new java.awt.Dimension(480, 439));
         loginScreen.setPreferredSize(new java.awt.Dimension(480, 439));
 
         logInButton.setText("Log In");
-        logInButton.setMaximumSize(new java.awt.Dimension(80, 25));
-        logInButton.setMinimumSize(new java.awt.Dimension(80, 25));
-        logInButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        logInButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        logInButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        logInButton.setPreferredSize(new java.awt.Dimension(180, 40));
         logInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logInButtonActionPerformed(evt);
@@ -350,30 +359,32 @@ public class Main extends javax.swing.JFrame {
         loginScreen.setLayout(loginScreenLayout);
         loginScreenLayout.setHorizontalGroup(
             loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginScreenLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
+                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
                         .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(logInPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(logInUsernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))
-                .addGap(0, 190, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logInUsernameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(logInPasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(184, 184, 184))
             .addGroup(loginScreenLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
+                .addGap(174, 174, 174)
                 .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         loginScreenLayout.setVerticalGroup(
             loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel4)
-                .addGap(63, 63, 63)
+                .addGap(65, 65, 65)
                 .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(logInUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -381,9 +392,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logInPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         mainPanel.add(loginScreen, "loginScreen");
@@ -435,13 +446,13 @@ public class Main extends javax.swing.JFrame {
         userScreenLayout.setHorizontalGroup(
             userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userScreenLayout.createSequentialGroup()
-                .addContainerGap(160, Short.MAX_VALUE)
+                .addContainerGap(169, Short.MAX_VALUE)
                 .addGroup(userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                     .addComponent(logOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(toCharacterButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(toUserManButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         userScreenLayout.setVerticalGroup(
             userScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -520,26 +531,27 @@ public class Main extends javax.swing.JFrame {
         characterManagementScreen.setLayout(characterManagementScreenLayout);
         characterManagementScreenLayout.setHorizontalGroup(
             characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(52, 52, 52))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, characterManagementScreenLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(characterManagementScreenLayout.createSequentialGroup()
                 .addGroup(characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(toNewCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(145, 145, 145))
+                    .addGroup(characterManagementScreenLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel8))
+                    .addGroup(characterManagementScreenLayout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addGroup(characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toNewCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         characterManagementScreenLayout.setVerticalGroup(
             characterManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(characterManagementScreenLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel8)
-                .addGap(53, 53, 53)
+                .addGap(63, 63, 63)
                 .addComponent(toNewCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(charStatsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,7 +559,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(toConnectServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(switchToUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(charLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -621,26 +633,26 @@ public class Main extends javax.swing.JFrame {
         userManagementScreenLayout.setHorizontalGroup(
             userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userManagementScreenLayout.createSequentialGroup()
+                .addGap(0, 121, Short.MAX_VALUE)
                 .addGroup(userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(userManagementScreenLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jLabel5))
-                    .addGroup(userManagementScreenLayout.createSequentialGroup()
-                        .addGap(148, 148, 148)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userManagementScreenLayout.createSequentialGroup()
                         .addGroup(userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(toExtendSubButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toAddMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toBuyCharsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userLogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(switchToCharButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(userLogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(127, Short.MAX_VALUE))
+                            .addComponent(toBuyCharsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toExtendSubButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toAddMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(163, 163, 163))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userManagementScreenLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(119, 119, 119))))
         );
         userManagementScreenLayout.setVerticalGroup(
             userManagementScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userManagementScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
-                .addGap(63, 63, 63)
+                .addGap(64, 64, 64)
                 .addComponent(toAddMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(toExtendSubButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -657,6 +669,7 @@ public class Main extends javax.swing.JFrame {
 
         addMoneyScreen.setMaximumSize(new java.awt.Dimension(480, 440));
         addMoneyScreen.setMinimumSize(new java.awt.Dimension(480, 440));
+        addMoneyScreen.setPreferredSize(new java.awt.Dimension(480, 440));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel12.setText("User Management");
@@ -678,12 +691,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(addMoneyScreenLayout.createSequentialGroup()
                 .addGroup(addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addMoneyScreenLayout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addGap(119, 119, 119)
                         .addComponent(jLabel12))
                     .addGroup(addMoneyScreenLayout.createSequentialGroup()
-                        .addGap(164, 164, 164)
+                        .addGap(172, 172, 172)
                         .addComponent(addMoneyBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         addMoneyScreenLayout.setVerticalGroup(
             addMoneyScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -719,14 +732,14 @@ public class Main extends javax.swing.JFrame {
         extendSubscriptionScreenLayout.setHorizontalGroup(
             extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
+                .addContainerGap(121, Short.MAX_VALUE)
                 .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jLabel13))
-                    .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, extendSubscriptionScreenLayout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(119, 119, 119))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, extendSubscriptionScreenLayout.createSequentialGroup()
+                        .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(174, 174, 174))))
         );
         extendSubscriptionScreenLayout.setVerticalGroup(
             extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -764,12 +777,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(buySlotsScreenLayout.createSequentialGroup()
                 .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(buySlotsScreenLayout.createSequentialGroup()
-                        .addGap(111, 111, 111)
+                        .addGap(119, 119, 119)
                         .addComponent(jLabel14))
                     .addGroup(buySlotsScreenLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(171, 171, 171)
                         .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         buySlotsScreenLayout.setVerticalGroup(
             buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -807,12 +820,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(createCharacterScreenLayout.createSequentialGroup()
                 .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(createCharacterScreenLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
+                        .addGap(78, 78, 78)
                         .addComponent(jLabel9))
                     .addGroup(createCharacterScreenLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
+                        .addGap(171, 171, 171)
                         .addComponent(ccBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         createCharacterScreenLayout.setVerticalGroup(
             createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -848,13 +861,14 @@ public class Main extends javax.swing.JFrame {
         connectServerScreenLayout.setHorizontalGroup(
             connectServerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(connectServerScreenLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel11)
-                .addContainerGap(71, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, connectServerScreenLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(conServerBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(164, 164, 164))
+                .addGroup(connectServerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(connectServerScreenLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel11))
+                    .addGroup(connectServerScreenLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(conServerBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         connectServerScreenLayout.setVerticalGroup(
             connectServerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -890,23 +904,22 @@ public class Main extends javax.swing.JFrame {
         charStatsScreenLayout.setHorizontalGroup(
             charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(charStatsScreenLayout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(68, 68, 68))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
-                        .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159))))
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(78, 78, 78))
+            .addGroup(charStatsScreenLayout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         charStatsScreenLayout.setVerticalGroup(
             charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(charStatsScreenLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
                 .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addContainerGap())
         );
 
         mainPanel.add(charStatsScreen, "charStatsScreen");
@@ -916,7 +929,7 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
