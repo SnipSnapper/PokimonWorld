@@ -1272,9 +1272,7 @@ public class Main extends javax.swing.JFrame {
         try
         {
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE user_name = '" + 
-                    loggedInUser + "'");
-            System.out.println(loggedInUser);
+           
             int amountOfMoneyAdded = Integer.parseInt(moneyField.getText());
             
             String updateBalance = "UPDATE Users SET balance = balance + '"+amountOfMoneyAdded+"' " 
