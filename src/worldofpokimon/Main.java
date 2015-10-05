@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,18 +31,20 @@ public class Main extends javax.swing.JFrame {
     String password;
     String logInUsername;
     String logInPassword;
+    String query;
+    String loggedInUser;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
-        /*try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost/Assignment1",
-            "postgres", "0891990");
+        try {
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/dev1",
+            "postgres", "lollipop");
         } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
          System.exit(0);
-    }*/
+    }
     }
 
     /**
@@ -71,6 +74,7 @@ public class Main extends javax.swing.JFrame {
         IBANText = new javax.swing.JLabel();
         IBANField = new javax.swing.JFormattedTextField();
         passwordField = new javax.swing.JPasswordField();
+        backButton = new javax.swing.JButton();
         loginScreen = new javax.swing.JPanel();
         logInButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -78,6 +82,7 @@ public class Main extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         logInUsernameField = new javax.swing.JFormattedTextField();
         logInPasswordField = new javax.swing.JPasswordField();
+        loginBackButton = new javax.swing.JButton();
         userScreen = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logOutButton = new javax.swing.JButton();
@@ -251,6 +256,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout registerScreenLayout = new javax.swing.GroupLayout(registerScreen);
         registerScreen.setLayout(registerScreenLayout);
         registerScreenLayout.setHorizontalGroup(
@@ -284,13 +296,19 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
                         .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(149, 149, 149))))
+            .addGroup(registerScreenLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(backButton)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         registerScreenLayout.setVerticalGroup(
             registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerScreenLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addContainerGap()
+                .addComponent(backButton)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(registerScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameText))
@@ -355,6 +373,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        loginBackButton.setText("Back");
+        loginBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout loginScreenLayout = new javax.swing.GroupLayout(loginScreen);
         loginScreen.setLayout(loginScreenLayout);
         loginScreenLayout.setHorizontalGroup(
@@ -375,14 +400,21 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(logInPasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(184, 184, 184))))
             .addGroup(loginScreenLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(loginBackButton)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         loginScreenLayout.setVerticalGroup(
             loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginScreenLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(5, 5, 5)
+                .addComponent(loginBackButton)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(68, 68, 68)
                 .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -936,6 +968,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginScreenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginScreenButtonActionPerformed
@@ -950,8 +983,6 @@ public class Main extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         getRegistration();
-        CardLayout card = (CardLayout)mainPanel.getLayout();
-        card.show(mainPanel, "mainScreen");
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
@@ -960,9 +991,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void logInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInButtonActionPerformed
-        //getUser();
-        CardLayout card = (CardLayout)mainPanel.getLayout();
-        card.show(mainPanel, "userScreen");
+        getUser();
     }//GEN-LAST:event_logInButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
@@ -1084,6 +1113,17 @@ public class Main extends javax.swing.JFrame {
         card.show(mainPanel, "characterManagementScreen");
     }//GEN-LAST:event_csBackButtonActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "mainScreen");
+        emtpyFields();
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void loginBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBackButtonActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        card.show(mainPanel, "mainScreen");
+    }//GEN-LAST:event_loginBackButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1127,7 +1167,7 @@ public class Main extends javax.swing.JFrame {
         String reg_firstName = firstNameField.getText();      
         String reg_lastName = lastNameField.getText();
         String reg_iban = IBANField.getText();
-        /*try {
+        try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM Users WHERE user_name = '" + reg_username + "';" );
             while ( rs.next() ) {
@@ -1137,9 +1177,10 @@ public class Main extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        /*if(reg_username.equals(reg_username)){
-            System.out.println("het werkt");
+        }
+        if(reg_username.equals(username)){
+            JOptionPane.showMessageDialog(registerScreen, "Username already in use.");
+            usernameField.setText("");
         } else{
             Users s = new Users();
             System.out.println(reg_username);
@@ -1149,33 +1190,45 @@ public class Main extends javax.swing.JFrame {
             s.setLastName(reg_lastName);
             s.setIban(reg_iban);
             persist(s);
-        }*/
-        
-    }
-    /*public void getUser(){
-        
-    try{
-    stmt = connection.createStatement();
-    ResultSet rs = stmt.executeQuery( "SELECT * FROM Users;" );
-    while ( rs.next() ) {
-            username = rs.getString("user_name");
-            password  = rs.getString("password");
-            
-    }
-    }
-    catch ( Exception e ) {
-         System.err.println( e.getClass().getName()+": "+ e.getMessage() );
-         System.exit(0);
-    }
-    logInUsername = logInUsernameField.getText();
-    logInPassword = logInPasswordField.getText();
-    if(username.equals(logInUsername) && password.equals(logInPassword)){
             CardLayout card = (CardLayout)mainPanel.getLayout();
-            card.show(mainPanel, "userScreen");
-        }else{
-            System.out.println("username or password doesn't match");
+            card.show(mainPanel, "mainScreen");
+            emtpyFields();
         }
-    }*/
+        
+        
+    }
+    
+    public void emtpyFields(){
+    
+            usernameField.setText("");
+            passwordField.setText("");
+            IBANField.setText("");
+            firstNameField.setText("");
+            lastNameField.setText("");
+    
+    }
+    public void getUser(){
+        logInUsername = logInUsernameField.getText();
+        logInPassword = logInPasswordField.getText();
+        loggedInUser = logInUsernameField.getText();
+        
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE user_name = '" + logInUsername + "' AND password = '" + logInPassword + "'");
+            if(rs.next()){
+                
+                CardLayout card = (CardLayout)mainPanel.getLayout();
+                card.show(mainPanel, "userScreen");
+            
+            }else{
+                
+                JOptionPane.showMessageDialog(loginScreen, "Incorrect Username and/or password");
+            
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public static void persist(Object object) 
     {
@@ -1199,6 +1252,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel IBANText;
     private javax.swing.JButton addMoneyBackButton;
     private javax.swing.JPanel addMoneyScreen;
+    private javax.swing.JButton backButton;
     private javax.swing.JButton bsBackButton;
     private javax.swing.JPanel buySlotsScreen;
     private javax.swing.JButton ccBackButton;
@@ -1234,6 +1288,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPasswordField logInPasswordField;
     private javax.swing.JFormattedTextField logInUsernameField;
     private javax.swing.JButton logOutButton;
+    private javax.swing.JButton loginBackButton;
     private javax.swing.JPanel loginScreen;
     private javax.swing.JButton loginScreenButton;
     private javax.swing.JPanel mainPanel;
