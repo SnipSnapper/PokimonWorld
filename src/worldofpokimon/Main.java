@@ -43,6 +43,7 @@ public class Main extends javax.swing.JFrame {
     String query;
     String loggedInUser;
     int radioText, monthsPayed, amountOfMoneyAdded;
+    int balance;
     
     /*@PersistenceContext(unitName="WorldOfPokimonPU")
      private EntityManager em;
@@ -1276,9 +1277,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_addMoneyButtonActionPerformed
 
     private void confirmSubscriptionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmSubscriptionButtonActionPerformed
-        subscribe();
-        //addSubscription();
-        JOptionPane.showMessageDialog(addMoneyScreen, "Thanks for the subscription");
+        checkBalance();
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "userManagementScreen");
     }//GEN-LAST:event_confirmSubscriptionButtonActionPerformed
@@ -1466,19 +1465,54 @@ public class Main extends javax.swing.JFrame {
 	    //get current date time with Date()
 	    Date date = new Date();
             System.out.println(dateFormat.format(date));
+            String characterQuery = "Update Users Set character_slots = 5 WHERE user_name = '" +loggedInUser+"'";
+            String characterQuery2 = "SELECT character_slots FROM Users WHERE user_name= '" +loggedInUser+"'";
+            ResultSet rs = stmt.executeQuery(characterQuery2);
+            while(rs.next()){
             
-            String subscriptionQuery = "UPDATE Users SET character_slots = character_slots + 5," 
-                    + "balance = balance - '"+radioText+"', last_payment = '"+dateFormat.format(date)+"' "
+                if(rs.getInt("character_slots") == 0){
+                
+                    stmt.executeQuery(characterQuery);
+                }
+            
+            }
+            
+            
+            String subscriptionQuery = "UPDATE Users SET balance = balance - '"+radioText+"', last_payment = '"+dateFormat.format(date)+"' "
                     + ",months_payed = '"+monthsPayed+"' WHERE user_name = '"+loggedInUser+"'";
             stmt.executeUpdate(subscriptionQuery);
+            
             
         } catch (Exception e)
         {
           e.getMessage();
         }
+        JOptionPane.showMessageDialog(addMoneyScreen, "wtf");
     }
     
-    public void addSubscription()
+    public void checkBalance(){
+        
+    
+        try {
+            stmt = connection.createStatement();
+            String query = "Select balance FROM users WHERE user_name = '" + loggedInUser +"'";
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next()){
+            balance = rs.getInt("balance");
+            System.out.println("balance = " + balance);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(balance >= radioText){
+                subscribe();
+            } else{
+                JOptionPane.showMessageDialog(extendSubscriptionScreen, "not enough balance");
+            }
+    }
+    
+    /*public void addSubscription()
     {
         try
         {
@@ -1497,7 +1531,7 @@ public class Main extends javax.swing.JFrame {
         {
           e.getMessage();
         }
-    }
+    }*/
     
     public static void persist(Object object) 
     {
