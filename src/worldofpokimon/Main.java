@@ -42,7 +42,7 @@ public class Main extends javax.swing.JFrame {
     String logInPassword;
     String query;
     String loggedInUser;
-    int radioText, monthsPayed, amountOfMoneyAdded;
+    int radioText, monthsPayed, amountOfMoneyAdded, balance, months_payed;
     
     /*@PersistenceContext(unitName="WorldOfPokimonPU")
      private EntityManager em;
@@ -58,8 +58,8 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost/dev1",
-            "postgres", "lollipop");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/Assignment1",
+            "postgres", "0891990");
         } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
          System.exit(0);
@@ -143,6 +143,11 @@ public class Main extends javax.swing.JFrame {
         buySlotsScreen = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         bsBackButton = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        amountOfSlotsField = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        addCharSlotsButton = new javax.swing.JButton();
         createCharacterScreen = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         ccBackButton = new javax.swing.JButton();
@@ -936,6 +941,23 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel21.setText("How many slots do you want to buy?");
+
+        jLabel22.setText("Slots");
+
+        jLabel23.setText("€1 per character slot");
+
+        addCharSlotsButton.setText("Buy Slot(s)");
+        addCharSlotsButton.setMaximumSize(new java.awt.Dimension(180, 40));
+        addCharSlotsButton.setMinimumSize(new java.awt.Dimension(180, 40));
+        addCharSlotsButton.setPreferredSize(new java.awt.Dimension(180, 40));
+        addCharSlotsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCharSlotsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout buySlotsScreenLayout = new javax.swing.GroupLayout(buySlotsScreen);
         buySlotsScreen.setLayout(buySlotsScreenLayout);
         buySlotsScreenLayout.setHorizontalGroup(
@@ -943,11 +965,24 @@ public class Main extends javax.swing.JFrame {
             .addGroup(buySlotsScreenLayout.createSequentialGroup()
                 .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
                         .addGap(309, 309, 309)
                         .addComponent(jLabel14))
                     .addGroup(buySlotsScreenLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(338, 338, 338)
+                        .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(addCharSlotsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                                    .addComponent(amountOfSlotsField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(31, 31, 31)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addGap(401, 401, 401)
+                        .addComponent(jLabel23)))
                 .addContainerGap(402, Short.MAX_VALUE))
         );
         buySlotsScreenLayout.setVerticalGroup(
@@ -957,7 +992,17 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(jLabel14)
-                .addContainerGap(571, Short.MAX_VALUE))
+                .addGap(82, 82, 82)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel23)
+                .addGap(45, 45, 45)
+                .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(amountOfSlotsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
+                .addGap(78, 78, 78)
+                .addComponent(addCharSlotsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         mainPanel.add(buySlotsScreen, "buySlotsScreen");
@@ -1283,6 +1328,11 @@ public class Main extends javax.swing.JFrame {
         card.show(mainPanel, "userManagementScreen");
     }//GEN-LAST:event_confirmSubscriptionButtonActionPerformed
 
+    private void addCharSlotsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCharSlotsButtonActionPerformed
+        addSlots();
+        amountOfSlotsField.setText("");
+    }//GEN-LAST:event_addCharSlotsButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1478,7 +1528,7 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
-    public void addSubscription()
+    /*public void addSubscription()
     {
         try
         {
@@ -1497,7 +1547,43 @@ public class Main extends javax.swing.JFrame {
         {
           e.getMessage();
         }
-    }
+    }*/
+    
+    public void addSlots()
+    {
+        int amountOfSlots = Integer.parseInt(amountOfSlotsField.getText());
+        int moneyForSlots = amountOfSlots * 1;
+
+        try
+        {
+            stmt = connection.createStatement();
+            String slotsQuery = "SELECT balance, months_payed FROM users WHERE user_name = '" + loggedInUser +"'";
+            ResultSet rs = stmt.executeQuery(slotsQuery);
+            while(rs.next()){
+                int userBalance = rs.getInt("balance");
+                int months_payedd = rs.getInt("months_payed");
+                System.out.println("balance: " + userBalance + ", months_payed: " + months_payedd);
+                    
+                if (userBalance > moneyForSlots && months_payedd > 0)
+                {
+                    String subscriptionQuery = "UPDATE Users SET character_slots = character_slots + '"+amountOfSlots+"'," 
+                        + "balance = balance - '"+moneyForSlots+"' WHERE user_name = '"+loggedInUser+"' AND months_payed IS NOT NULL";
+                    stmt.executeUpdate(subscriptionQuery);
+                    JOptionPane.showMessageDialog(buySlotsScreen, "You've bought "+amountOfSlots+" slots");
+                    CardLayout card = (CardLayout)mainPanel.getLayout();
+                    card.show(mainPanel, "userManagementScreen");
+                } else
+                {
+                    JOptionPane.showMessageDialog(buySlotsScreen, "Your don't have enough balance to buy a slot, or you don't have a subscription");
+                }
+            }
+            
+            
+        } catch (Exception e)
+        {
+          e.getMessage();
+        }
+    }    
     
     public static void persist(Object object) 
     {
@@ -1518,9 +1604,11 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField IBANField;
     private javax.swing.JLabel IBANText;
+    private javax.swing.JButton addCharSlotsButton;
     private javax.swing.JButton addMoneyBackButton;
     private javax.swing.JButton addMoneyButton;
     private javax.swing.JPanel addMoneyScreen;
+    private javax.swing.JTextField amountOfSlotsField;
     private javax.swing.JButton backButton;
     private javax.swing.JButton bsBackButton;
     private javax.swing.JPanel buySlotsScreen;
@@ -1551,6 +1639,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
