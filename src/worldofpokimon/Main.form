@@ -32,13 +32,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="mainPanel" max="32767" attributes="0"/>
+              <Component id="mainPanel" pref="1000" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="mainPanel" min="-2" pref="439" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="mainPanel" min="-2" pref="439" max="-2" attributes="0"/>
+              <EmptySpace pref="262" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -221,7 +224,7 @@
                       <Component id="backButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="usernameField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="usernameText" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -526,14 +529,14 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="145" max="32767" attributes="0"/>
+                      <EmptySpace pref="405" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel1" pref="191" max="32767" attributes="0"/>
                           <Component id="logOutButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="toCharacterButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="toUserManButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="144" max="32767" attributes="0"/>
+                      <EmptySpace pref="404" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -662,7 +665,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <EmptySpace pref="575" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -804,7 +807,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="97" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="617" max="32767" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                   </Group>
@@ -966,7 +969,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="95" max="32767" attributes="0"/>
+                      <EmptySpace pref="615" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -1086,24 +1089,38 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="threeMonthsSubscription" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="yearSubscription" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="oneMonthSubscription" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="yearSubscription" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="oneMonthSubscription" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="twoMonthsSubscription" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="threeMonthsSubscription" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="confirmSubscriptionButton" min="-2" max="-2" attributes="0"/>
                                   <Component id="esBackButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="95" max="32767" attributes="0"/>
+                      <EmptySpace pref="615" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1115,15 +1132,27 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="oneMonthSubscription" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="oneMonthSubscription" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="twoMonthsSubscription" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="twoMonthsSubscription" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="threeMonthsSubscription" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="threeMonthsSubscription" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="yearSubscription" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="yearSubscription" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="12" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirmSubscriptionButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="esBackButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1159,22 +1188,22 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="oneMonthSubscription">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x20ac;5 - One Month"/>
+                <Property name="text" type="java.lang.String" value="5"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="twoMonthsSubscription">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x20ac;8 - Two Months"/>
+                <Property name="text" type="java.lang.String" value="8"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="threeMonthsSubscription">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x20ac;10 - Three Months"/>
+                <Property name="text" type="java.lang.String" value="10"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="yearSubscription">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x20ac;35 - One Year"/>
+                <Property name="text" type="java.lang.String" value="35"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -1185,7 +1214,7 @@
                 <Property name="text" type="java.lang.String" value="Subscription"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="confirmSubscriptionButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Confirm Subscription"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1197,6 +1226,29 @@
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[180, 40]"/>
                 </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmSubscriptionButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel17">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac; - One Month"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel18">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac; - Two Months"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel19">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac; - Three Months"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel20">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac; - Year"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -1225,7 +1277,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="95" max="32767" attributes="0"/>
+                      <EmptySpace pref="615" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -1306,7 +1358,7 @@
                               <Component id="ccBackButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <EmptySpace pref="576" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1372,7 +1424,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <EmptySpace pref="576" max="32767" attributes="0"/>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
@@ -1456,7 +1508,7 @@
                               <Component id="csBackButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <EmptySpace pref="575" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
