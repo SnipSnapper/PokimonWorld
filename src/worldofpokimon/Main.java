@@ -42,9 +42,7 @@ public class Main extends javax.swing.JFrame {
     String logInPassword;
     String query;
     String loggedInUser;
-    int radioText, monthsPayed, amountOfMoneyAdded, balance, months_payed;
-    int radioText, monthsPayed, amountOfMoneyAdded;
-    int balance;
+    int radioText, monthsPayed, amountOfMoneyAdded, months_payed, balance;
     
     /*@PersistenceContext(unitName="WorldOfPokimonPU")
      private EntityManager em;
@@ -60,8 +58,9 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost/Assignment1",
-            "postgres", "0891990");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/dev1",
+            "postgres", "lollipop");
+            
         } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
          System.exit(0);
@@ -142,6 +141,8 @@ public class Main extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        subMoneyField = new javax.swing.JTextField();
+        subBalance = new javax.swing.JLabel();
         buySlotsScreen = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         bsBackButton = new javax.swing.JButton();
@@ -150,6 +151,8 @@ public class Main extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         addCharSlotsButton = new javax.swing.JButton();
+        slotMoneyField = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
         createCharacterScreen = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         ccBackButton = new javax.swing.JButton();
@@ -854,6 +857,14 @@ public class Main extends javax.swing.JFrame {
 
         jLabel20.setText("€ - Year");
 
+        subMoneyField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subMoneyFieldActionPerformed(evt);
+            }
+        });
+
+        subBalance.setText("Balance :");
+
         javax.swing.GroupLayout extendSubscriptionScreenLayout = new javax.swing.GroupLayout(extendSubscriptionScreen);
         extendSubscriptionScreen.setLayout(extendSubscriptionScreenLayout);
         extendSubscriptionScreenLayout.setHorizontalGroup(
@@ -869,7 +880,7 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel17))
                             .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
                                 .addComponent(threeMonthsSubscription)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel19))
                             .addComponent(jLabel16)
                             .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
@@ -891,34 +902,42 @@ public class Main extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(377, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, extendSubscriptionScreenLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(subBalance)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(subMoneyField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
         );
         extendSubscriptionScreenLayout.setVerticalGroup(
             extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(esBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(extendSubscriptionScreenLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel16)
-                        .addGap(27, 27, 27)
-                        .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(oneMonthSubscription))
-                        .addGap(18, 18, 18)
-                        .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(twoMonthsSubscription)
-                            .addComponent(jLabel18))
-                        .addGap(18, 18, 18)
-                        .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(threeMonthsSubscription)
-                            .addComponent(jLabel19))
-                        .addGap(32, 32, 32))
-                    .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(yearSubscription)
-                        .addComponent(jLabel20)))
+                .addGap(1, 1, 1)
+                .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(subMoneyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subBalance))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel13)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel16)
+                .addGap(27, 27, 27)
+                .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(oneMonthSubscription))
+                .addGap(18, 18, 18)
+                .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(twoMonthsSubscription)
+                    .addComponent(jLabel18))
+                .addGap(18, 18, 18)
+                .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(threeMonthsSubscription)
+                    .addComponent(jLabel19))
+                .addGap(9, 9, 9)
+                .addGroup(extendSubscriptionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(yearSubscription)
+                    .addComponent(jLabel20))
                 .addGap(79, 79, 79)
                 .addComponent(confirmSubscriptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(230, Short.MAX_VALUE))
@@ -960,15 +979,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel24.setText("Balance :");
+
         javax.swing.GroupLayout buySlotsScreenLayout = new javax.swing.GroupLayout(buySlotsScreen);
         buySlotsScreen.setLayout(buySlotsScreenLayout);
         buySlotsScreenLayout.setHorizontalGroup(
             buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buySlotsScreenLayout.createSequentialGroup()
                 .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(buySlotsScreenLayout.createSequentialGroup()
                         .addGap(309, 309, 309)
                         .addComponent(jLabel14))
@@ -986,13 +1004,32 @@ public class Main extends javax.swing.JFrame {
                         .addGap(401, 401, 401)
                         .addComponent(jLabel23)))
                 .addContainerGap(402, Short.MAX_VALUE))
+            .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel24)
+                        .addGap(18, 18, 18)))
+                .addComponent(slotMoneyField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         buySlotsScreenLayout.setVerticalGroup(
             buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buySlotsScreenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(bsBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(buySlotsScreenLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(buySlotsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(slotMoneyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24))))
+                .addGap(31, 31, 31)
                 .addComponent(jLabel14)
                 .addGap(82, 82, 82)
                 .addComponent(jLabel21)
@@ -1250,11 +1287,15 @@ public class Main extends javax.swing.JFrame {
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "extendSubscriptionScreen");
         groupButton();
+        getBalance();
+        subMoneyField.setText(Integer.toString(balance));
     }//GEN-LAST:event_toExtendSubButtonActionPerformed
 
     private void toBuyCharsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toBuyCharsButtonActionPerformed
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "buySlotsScreen");
+        getBalance();
+        slotMoneyField.setText(Integer.toString(balance));
     }//GEN-LAST:event_toBuyCharsButtonActionPerformed
 
     private void toNewCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toNewCharButtonActionPerformed
@@ -1332,6 +1373,10 @@ public class Main extends javax.swing.JFrame {
         addSlots();
         amountOfSlotsField.setText("");
     }//GEN-LAST:event_addCharSlotsButtonActionPerformed
+
+    private void subMoneyFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMoneyFieldActionPerformed
+
+    }//GEN-LAST:event_subMoneyFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1484,7 +1529,7 @@ public class Main extends javax.swing.JFrame {
         bgSubscription.add(yearSubscription);
     }
     
-    public void subscribe()
+    public void radioText()
     {          
         if (oneMonthSubscription.isSelected())
         {
@@ -1507,7 +1552,9 @@ public class Main extends javax.swing.JFrame {
             monthsPayed = 12;
             System.out.println(radioText);         
         }
-        
+    }
+        public void subscribe(){
+          
         try
         {
             stmt = connection.createStatement();
@@ -1525,12 +1572,11 @@ public class Main extends javax.swing.JFrame {
                 
                     stmt.executeQuery(characterQuery);
                 }
-            
             }
             
             
             String subscriptionQuery = "UPDATE Users SET balance = balance - '"+radioText+"', last_payment = '"+dateFormat.format(date)+"' "
-                    + ",months_payed = '"+monthsPayed+"' WHERE user_name = '"+loggedInUser+"'";
+                    + ",months_payed = months_payed + '"+monthsPayed+"' WHERE user_name = '"+loggedInUser+"'";
             stmt.executeUpdate(subscriptionQuery);
             
             
@@ -1538,56 +1584,36 @@ public class Main extends javax.swing.JFrame {
         {
           e.getMessage();
         }
-        JOptionPane.showMessageDialog(addMoneyScreen, "wtf");
+        JOptionPane.showMessageDialog(addMoneyScreen, "Thank you for subscribing!");
     }
     
     public void checkBalance(){
-        
+        radioText();
     
         try {
             stmt = connection.createStatement();
             String query = "Select balance FROM users WHERE user_name = '" + loggedInUser +"'";
             ResultSet rs = stmt.executeQuery(query);
             while(rs.next()){
+            System.out.println(radioText);
             balance = rs.getInt("balance");
-            System.out.println("balance = " + balance);
+            if(balance >= radioText){
+                subscribe();
+                System.out.println("balance = " + balance);
+            } else{
+                JOptionPane.showMessageDialog(extendSubscriptionScreen, "not enough balance");
+            }
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(balance >= radioText){
-                subscribe();
-            } else{
-                JOptionPane.showMessageDialog(extendSubscriptionScreen, "not enough balance");
-            }
     }
-    
-    /*public void addSubscription()
-    {
-        try
-        {
-            stmt = connection.createStatement();
-            
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	    //get current date time with Date()
-	    Date date = new Date();
-            
-            String subscriptionQuery = "UPDATE Users SET character_slots = character_slots + '"+5+"' " 
-                    + "AND balance = balance - '"+radioText+"' AND last_payment = '"+dateFormat.format(date)+"' "
-                    + "AND months_payed = '"+monthsPayed+"' WHERE user_name = '"+loggedInUser+"'";
-            stmt.executeUpdate(subscriptionQuery);
-            
-        } catch (Exception e)
-        {
-          e.getMessage();
-        }
-    }*/
     
     public void addSlots()
     {
         int amountOfSlots = Integer.parseInt(amountOfSlotsField.getText());
-        int moneyForSlots = amountOfSlots * 1;
+        int moneyForSlots = amountOfSlots * 1 ;
 
         try
         {
@@ -1634,7 +1660,22 @@ public class Main extends javax.swing.JFrame {
         } finally {
             em.close();
         }
+        
     }
+    public void getBalance(){
+        
+        try {
+            String query = "Select balance FROM users WHERE user_name = '" + loggedInUser +"'";
+            ResultSet rs;
+            rs = stmt.executeQuery(query);
+            stmt = connection.createStatement();
+            while(rs.next()){
+            balance = rs.getInt("balance");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField IBANField;
@@ -1677,6 +1718,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1702,6 +1744,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton registerButton;
     private javax.swing.JPanel registerScreen;
     private javax.swing.JButton registerScreenButton;
+    private javax.swing.JTextField slotMoneyField;
+    private javax.swing.JLabel subBalance;
+    private javax.swing.JTextField subMoneyField;
     private javax.swing.JButton switchToCharButton;
     private javax.swing.JButton switchToUserButton;
     private javax.swing.JRadioButton threeMonthsSubscription;
