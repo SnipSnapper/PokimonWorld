@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -26,6 +27,7 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,6 +44,13 @@ public class Main extends javax.swing.JFrame {
     String logInPassword;
     String query;
     String loggedInUser;
+    String charName;
+    String selectedClass, selectedRace;
+    //String newCharName;
+    String characterName;
+    String charClass;
+    String charRace;
+    int charLevel;
     int radioText, monthsPayed, amountOfMoneyAdded, months_payed, balance;
     
     /*@PersistenceContext(unitName="WorldOfPokimonPU")
@@ -58,8 +67,8 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost/dev1",
-            "postgres", "lollipop");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost/Assignment1",
+            "postgres", "0891990");
             
         } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
@@ -156,12 +165,29 @@ public class Main extends javax.swing.JFrame {
         createCharacterScreen = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         ccBackButton = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        charNameField = new javax.swing.JTextField();
+        classChooser = new javax.swing.JComboBox();
+        raceChooser = new javax.swing.JComboBox();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        createCharButton = new javax.swing.JButton();
         connectServerScreen = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         conServerBackButton = new javax.swing.JButton();
         charStatsScreen = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         csBackButton = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        switchCharStats = new javax.swing.JComboBox();
+        jLabel28 = new javax.swing.JLabel();
+        setCharClassField = new javax.swing.JTextField();
+        setCharRaceField = new javax.swing.JTextField();
+        setCharLevelField = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        temporarily = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 0));
@@ -1063,6 +1089,33 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel25.setText("Name");
+
+        classChooser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cave", "Normal", "Sea", "Sky", "Underground" }));
+        classChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                classChooserActionPerformed(evt);
+            }
+        });
+
+        raceChooser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Electric", "Fire", "Grass", "Rock", "Water" }));
+        raceChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                raceChooserActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Class");
+
+        jLabel27.setText("Race");
+
+        createCharButton.setText("Create Character");
+        createCharButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createCharButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout createCharacterScreenLayout = new javax.swing.GroupLayout(createCharacterScreen);
         createCharacterScreen.setLayout(createCharacterScreenLayout);
         createCharacterScreenLayout.setHorizontalGroup(
@@ -1074,7 +1127,24 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel9))
                     .addGroup(createCharacterScreenLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(ccBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ccBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(createCharacterScreenLayout.createSequentialGroup()
+                            .addGap(496, 496, 496)
+                            .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(charNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(raceChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createCharacterScreenLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel27)
+                                .addComponent(jLabel26)
+                                .addComponent(jLabel25))
+                            .addGap(68, 68, 68)
+                            .addComponent(classChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(createCharacterScreenLayout.createSequentialGroup()
+                        .addGap(458, 458, 458)
+                        .addComponent(createCharButton)))
                 .addContainerGap(341, Short.MAX_VALUE))
         );
         createCharacterScreenLayout.setVerticalGroup(
@@ -1084,7 +1154,21 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(ccBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jLabel9)
-                .addContainerGap(580, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(charNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(classChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addGap(48, 48, 48)
+                .addGroup(createCharacterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(raceChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(104, 104, 104)
+                .addComponent(createCharButton)
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         mainPanel.add(createCharacterScreen, "createCharacterScreen");
@@ -1151,19 +1235,78 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel30.setText("Character Stats");
+
+        switchCharStats.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                switchCharStatsItemStateChanged(evt);
+            }
+        });
+        switchCharStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchCharStatsActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Choose Character");
+
+        setCharClassField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setCharClassFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setText("Character class");
+
+        jLabel31.setText("Character race");
+
+        jLabel32.setText("Character level");
+
+        temporarily.setText("cxzffda");
+        temporarily.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                temporarilyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout charStatsScreenLayout = new javax.swing.GroupLayout(charStatsScreen);
         charStatsScreen.setLayout(charStatsScreenLayout);
         charStatsScreenLayout.setHorizontalGroup(
             charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(charStatsScreenLayout.createSequentialGroup()
                 .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel30)
+                        .addGap(73, 73, 73))
                     .addGroup(charStatsScreenLayout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(jLabel10))
-                    .addGroup(charStatsScreenLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(charStatsScreenLayout.createSequentialGroup()
+                                .addGap(286, 286, 286)
+                                .addComponent(jLabel10))
+                            .addGroup(charStatsScreenLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
+                        .addGap(387, 387, 387)
+                        .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel32))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(switchCharStats, 0, 100, Short.MAX_VALUE)
+                            .addComponent(setCharClassField)
+                            .addComponent(setCharRaceField)
+                            .addComponent(setCharLevelField))))
                 .addContainerGap(343, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, charStatsScreenLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(temporarily)
+                .addGap(457, 457, 457))
         );
         charStatsScreenLayout.setVerticalGroup(
             charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1172,7 +1315,27 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(csBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
-                .addContainerGap(605, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(jLabel30)
+                .addGap(94, 94, 94)
+                .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(switchCharStats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addGap(70, 70, 70)
+                .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(setCharClassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
+                .addGap(40, 40, 40)
+                .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(setCharRaceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31))
+                .addGap(38, 38, 38)
+                .addGroup(charStatsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(setCharLevelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(temporarily)
+                .addGap(94, 94, 94))
         );
 
         mainPanel.add(charStatsScreen, "charStatsScreen");
@@ -1301,6 +1464,8 @@ public class Main extends javax.swing.JFrame {
     private void toNewCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toNewCharButtonActionPerformed
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "createCharacterScreen");
+        classChooser.setSelectedIndex(0);
+        raceChooser.setSelectedIndex(0);
     }//GEN-LAST:event_toNewCharButtonActionPerformed
 
     private void toConnectServerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toConnectServerButtonActionPerformed
@@ -1311,6 +1476,7 @@ public class Main extends javax.swing.JFrame {
     private void charStatsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_charStatsButtonActionPerformed
         CardLayout card = (CardLayout)mainPanel.getLayout();
         card.show(mainPanel, "charStatsScreen");
+        charStatsDisplay();
     }//GEN-LAST:event_charStatsButtonActionPerformed
 
     private void addMoneyBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoneyBackButtonActionPerformed
@@ -1377,6 +1543,53 @@ public class Main extends javax.swing.JFrame {
     private void subMoneyFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMoneyFieldActionPerformed
 
     }//GEN-LAST:event_subMoneyFieldActionPerformed
+
+    private void createCharButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCharButtonActionPerformed
+        chooseCharacter();
+    }//GEN-LAST:event_createCharButtonActionPerformed
+
+    private void classChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classChooserActionPerformed
+        classChooser = (JComboBox) evt.getSource();
+        selectedClass = (String) classChooser.getSelectedItem();
+    }//GEN-LAST:event_classChooserActionPerformed
+
+    private void raceChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raceChooserActionPerformed
+        raceChooser = (JComboBox) evt.getSource();
+        selectedRace = (String) raceChooser.getSelectedItem();
+    }//GEN-LAST:event_raceChooserActionPerformed
+
+    private void setCharClassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setCharClassFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_setCharClassFieldActionPerformed
+
+    private void switchCharStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchCharStatsActionPerformed
+       
+    }//GEN-LAST:event_switchCharStatsActionPerformed
+
+    private void temporarilyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_temporarilyActionPerformed
+        //charStatsDisplay();
+    }//GEN-LAST:event_temporarilyActionPerformed
+
+    private void switchCharStatsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_switchCharStatsItemStateChanged
+        String s = switchCharStats.getSelectedItem().toString();
+        String sql = "SELECT * FROM characters WHERE name = '"+s+"'";
+        
+        try 
+        {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                //setCharNameField.setText(rs.getString("name"));
+                setCharClassField.setText(rs.getString("class"));
+                setCharRaceField.setText(rs.getString("race"));
+                setCharLevelField.setText(Integer.toString(rs.getInt("level")));
+            }
+        }catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_switchCharStatsItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -1503,22 +1716,6 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
-    /*public void executeBalanceUpdate()
-    {
-        //int balance, String user_name
-        //int amountOfMoneyAdded = Integer.parseInt(moneyField.getText());
-        
-          Query update_query = em.createNamedQuery("updateBalance");
-          //update_query.setParameter(1, amountOfMoneyAdded);
-          update_query.setParameter(1, loggedInUser);
-          int updateData = update_query.executeUpdate();
-          System.out.print(updateData);
-          //em.setFlushMode(FlushModeType.COMMIT);
-          //em.close();
-          //return updateData;
-          
-     }*/
-    
     private void groupButton()
     {
         ButtonGroup bgSubscription = new ButtonGroup();
@@ -1553,7 +1750,8 @@ public class Main extends javax.swing.JFrame {
             System.out.println(radioText);         
         }
     }
-        public void subscribe(){
+    
+    public void subscribe(){
           
         try
         {
@@ -1573,12 +1771,10 @@ public class Main extends javax.swing.JFrame {
                     stmt.executeQuery(characterQuery);
                 }
             }
-            
-            
+                     
             String subscriptionQuery = "UPDATE Users SET balance = balance - '"+radioText+"', last_payment = '"+dateFormat.format(date)+"' "
                     + ",months_payed = months_payed + '"+monthsPayed+"' WHERE user_name = '"+loggedInUser+"'";
             stmt.executeUpdate(subscriptionQuery);
-            
             
         } catch (Exception e)
         {
@@ -1625,7 +1821,7 @@ public class Main extends javax.swing.JFrame {
                 int months_payedd = rs.getInt("months_payed");
                 System.out.println("balance: " + userBalance + ", months_payed: " + months_payedd);
                     
-                if (userBalance > moneyForSlots && months_payedd > 0)
+                if (userBalance >= moneyForSlots && months_payedd > 0)
                 {
                     String subscriptionQuery = "UPDATE Users SET character_slots = character_slots + '"+amountOfSlots+"'," 
                         + "balance = balance - '"+moneyForSlots+"' WHERE user_name = '"+loggedInUser+"' AND months_payed IS NOT NULL";
@@ -1645,6 +1841,126 @@ public class Main extends javax.swing.JFrame {
           e.getMessage();
         }
     }    
+    
+    public void chooseCharacter()
+    {
+        //String charName;
+        String newCharName = charNameField.getText();
+        Random rand = new Random(); 
+        int value = rand.nextInt(100) + 1; 
+        System.out.println(newCharName);
+        
+        try
+        {
+            stmt = connection.createStatement();
+            String charQuery = "SELECT * FROM character WHERE name = '"+newCharName+"'";
+            //String userQuery = "SELECT character_slots FROM users WHERE user_name = '" + loggedInUser +"'";
+            
+            ResultSet rs = stmt.executeQuery(charQuery);
+            while(rs.next()){
+                charName = rs.getString("name");
+                System.out.println(charName);
+                    
+                /*if (userBalance > moneyForSlots && months_payedd > 0)
+                {
+                    String subscriptionQuery = "UPDATE Users SET character_slots = character_slots + '"+amountOfSlots+"'," 
+                        + "balance = balance - '"+moneyForSlots+"' WHERE user_name = '"+loggedInUser+"' AND months_payed IS NOT NULL";
+                    stmt.executeUpdate(subscriptionQuery);
+                    JOptionPane.showMessageDialog(buySlotsScreen, "You've bought "+amountOfSlots+" slots");
+                    CardLayout card = (CardLayout)mainPanel.getLayout();
+                    card.show(mainPanel, "userManagementScreen");
+                } else
+                {
+                    JOptionPane.showMessageDialog(buySlotsScreen, "Your don't have enough balance to buy a slot, or you don't have a subscription");
+                }
+                
+                }  */ 
+            }
+                        
+        } catch (Exception e)
+        {
+          e.getMessage();
+        }
+        if(newCharName.equals(charName)){
+            JOptionPane.showMessageDialog(createCharacterScreen, "Character name already in use.");
+            //charNameField.setText("");
+        } else{
+            Characters c = new Characters();
+            //System.out.println(newCharName);
+            c.setName(newCharName);
+            c.setClass1(selectedClass);
+            c.setRace(selectedRace);
+            c.setLevel(value);
+            persist(c);
+            updateCharOwner();
+            System.out.println(newCharName);
+            CardLayout card = (CardLayout)mainPanel.getLayout();
+            card.show(mainPanel, "characterManagementScreen");
+            charNameField.setText("");
+        }
+        /*classChooser.getSource();
+        String itemNumber = (String)classChooser.getSelectedItem();*/
+        //System.out.println(selectedClass);
+        //System.out.println(selectedRace);
+    }
+    
+    /*public void updateCharOwner()
+    {
+        try 
+        {
+            stmt = connection.createStatement();
+            String updateCharOwners = "INSERT INTO owns (name, user_name) VALUES ('"+newCharName+"','"+loggedInUser+"');";
+            ResultSet rs = stmt.executeQuery(updateCharOwners);
+            
+//            while(rs.next()){
+//                charName = rs.getString("name");
+//                System.out.println(charName);
+//            }
+
+        } catch (SQLException e)
+        {
+          e.getMessage();                    
+        }
+    */
+    
+    public void charStatsDisplay()
+    {  
+        try 
+        {
+            stmt = connection.createStatement();
+            String getCharStats = "SELECT c.name, class, race, level FROM characters c "
+                    + "INNER JOIN owns o ON c.name = o.name "
+                    + "WHERE o.user_name = '"+loggedInUser+"' ORDER BY c.level DESC;";
+            ResultSet rs = stmt.executeQuery(getCharStats);
+            
+            while(rs.next()){
+                switchCharStats.addItem(rs.getString("name"));
+                setCharClassField.setText(rs.getString("class"));
+                setCharRaceField.setText(rs.getString("race"));
+                charLevel = rs.getInt("level");
+                setCharLevelField.setText(Integer.toString(rs.getInt("level")));
+                System.out.println(charClass);
+                System.out.println(charRace);
+                System.out.println(charLevel);
+            }
+
+        } catch (SQLException e)
+        {
+          e.getMessage();                    
+        }
+        
+        setUneditable();
+        /*setCharClassField.setText(charClass);
+        setCharRaceField.setText(charRace);
+        setCharLevelField.setText(Integer.toString(charLevel));*/
+    }    
+    
+    public void setUneditable()
+    {
+        setCharClassField.setEditable(false);
+        setCharRaceField.setEditable(false);
+        setCharLevelField.setEditable(false);
+    }
     
     public static void persist(Object object) 
     {
@@ -1675,7 +1991,7 @@ public class Main extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField IBANField;
@@ -1690,12 +2006,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel buySlotsScreen;
     private javax.swing.JButton ccBackButton;
     private javax.swing.JButton charLogOut;
+    private javax.swing.JTextField charNameField;
     private javax.swing.JButton charStatsButton;
     private javax.swing.JPanel charStatsScreen;
     private javax.swing.JPanel characterManagementScreen;
+    private javax.swing.JComboBox classChooser;
     private javax.swing.JButton conServerBackButton;
     private javax.swing.JButton confirmSubscriptionButton;
     private javax.swing.JPanel connectServerScreen;
+    private javax.swing.JButton createCharButton;
     private javax.swing.JPanel createCharacterScreen;
     private javax.swing.JButton csBackButton;
     private javax.swing.JButton esBackButton;
@@ -1719,7 +2038,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1741,14 +2068,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton oneMonthSubscription;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordText;
+    private javax.swing.JComboBox raceChooser;
     private javax.swing.JButton registerButton;
     private javax.swing.JPanel registerScreen;
     private javax.swing.JButton registerScreenButton;
+    private javax.swing.JTextField setCharClassField;
+    private javax.swing.JTextField setCharLevelField;
+    private javax.swing.JTextField setCharRaceField;
     private javax.swing.JTextField slotMoneyField;
     private javax.swing.JLabel subBalance;
     private javax.swing.JTextField subMoneyField;
+    private javax.swing.JComboBox switchCharStats;
     private javax.swing.JButton switchToCharButton;
     private javax.swing.JButton switchToUserButton;
+    private javax.swing.JButton temporarily;
     private javax.swing.JRadioButton threeMonthsSubscription;
     private javax.swing.JButton toAddMoneyButton;
     private javax.swing.JButton toBuyCharsButton;
